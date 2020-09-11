@@ -29,7 +29,6 @@ public class ResponseBodyAdapter implements ResponseBodyAdvice<Object> {
     public Object beforeBodyWrite(Object body, MethodParameter methodParameter, MediaType mediaType,
                                   Class<? extends HttpMessageConverter<?>> aClass,
                                   ServerHttpRequest serverHttpRequest, ServerHttpResponse serverHttpResponse) {
-        System.out.println();
         if (serverHttpRequest instanceof ServletServerHttpRequest && serverHttpResponse instanceof ServletServerHttpResponse) {
             loggingService.logResponse(
                     ((ServletServerHttpRequest) serverHttpRequest).getServletRequest(),
